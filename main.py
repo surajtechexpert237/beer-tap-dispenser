@@ -10,3 +10,5 @@ app.include_router(common_routes)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)
+
+from apps.dispenser import models
