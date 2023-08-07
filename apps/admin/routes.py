@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Response
 
-from adapter.db_interface.db_interface_impl import DBInterface
+from core.adapter.db_interface.db_interface_impl import DBInterface
 from .schemas import CreateDispenserSchema, DispenserResponseSchema
 from .services import add_dispenser
 from ..dispenser.models import Dispenser
@@ -13,15 +13,17 @@ def create_dispenser(request: CreateDispenserSchema, response: Response):
     """
     Create a new dispenser with the provided flow_volume.
 
-    :param request:
-    - CreateDispenserSchema
-        The request body containing the flow_volume and price.
-    :param response:
-    - Response
-        The response object to handle the HTTP response.
+    Parameters:
 
-    :return:
-    - DispenserResponseSchema
-        The created dispenser data in the response.
+        request :
+            CreateDispenserSchema :
+                The request body containing the flow_volume and price.
+        response :
+            The response object to handle the HTTP response.
+
+    Returns:
+
+        DispenserResponseSchema :
+            The created dispenser data in the response.
     """
     return add_dispenser(request, response, DBInterface(Dispenser))

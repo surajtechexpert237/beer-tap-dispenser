@@ -8,7 +8,7 @@ from core.models import TimeStampMixin
 class Dispenser(Base, TimeStampMixin):
     __tablename__ = "dispenser"
     id = Column(String(255), primary_key=True)
-    flow_volume = Column(String(255))  # flow_volume is calculated as L/s.
+    flow_volume = Column(Float(precision=2))
     price = Column(Float(precision=2))
     status = Column(Boolean, default=False)
 

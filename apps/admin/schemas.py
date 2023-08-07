@@ -6,13 +6,13 @@ from apps.common.schemas import ResponseMessage
 
 
 class CreateDispenserSchema(BaseModel):
-    flow_volume: str = "L/s"
+    flow_volume: float
     price: float
 
 
 class CreateDispenserResponseSchema(BaseModel):
     id: str
-    flow_volume: str
+    flow_volume: float
     price: float
     status: bool
 
