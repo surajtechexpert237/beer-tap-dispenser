@@ -1,8 +1,8 @@
-"""initial
+"""dispenser model
 
-Revision ID: d5e589f3dec4
+Revision ID: c28e95be317e
 Revises: 
-Create Date: 2023-08-04 16:53:27.357977
+Create Date: 2023-08-07 14:30:43.205672
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd5e589f3dec4'
+revision = 'c28e95be317e'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -30,7 +30,7 @@ def upgrade() -> None:
     op.create_table('dispenser_entries',
     sa.Column('id', sa.String(length=255), nullable=False),
     sa.Column('open_time', sa.DateTime(), nullable=False),
-    sa.Column('close_time', sa.DateTime(), nullable=False),
+    sa.Column('close_time', sa.DateTime(), nullable=True),
     sa.Column('dispenser_id', sa.String(length=255), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('modified_at', sa.DateTime(), nullable=True),

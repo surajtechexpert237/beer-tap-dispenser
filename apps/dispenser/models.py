@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy import Column, String, Float, ForeignKey, Boolean, DateTime
 from sqlalchemy.orm import relationship
 
@@ -18,7 +20,7 @@ class DispenserEntries(Base, TimeStampMixin):
     id = Column(String(255), primary_key=True)
 
     open_time = Column(DateTime, nullable=False)
-    close_time = Column(DateTime, nullable=False)
+    close_time = Column(DateTime, nullable=True)
 
     dispenser_id = Column(ForeignKey("dispenser.id"), nullable=False)
     dispenser = relationship("Dispenser", cascade="delete")
